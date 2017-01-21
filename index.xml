@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Łukasz Górski</title>
+    <link>/index.xml</link>
+    <description>Recent content on Łukasz Górski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 21 Jan 2017 11:44:00 -0100</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tabular legend in a PNP4Nagios template</title>
+      <link>blog/tabular-legend-in-pnp4nagios/</link>
+      <pubDate>Sat, 21 Jan 2017 11:44:00 -0100</pubDate>
+      
+      <guid>blog/tabular-legend-in-pnp4nagios/</guid>
+      <description>&lt;p&gt;The example below is a template for a check gathering data from the &lt;a href=&#34;https://docs.sentry.io/server/monitoring/&#34;&gt;&lt;code&gt;sentry_queues&lt;/code&gt;&lt;/a&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+$fields = array(
+  &amp;quot;alerts&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 1,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#9d0006&amp;quot;),
+  &amp;quot;auth&amp;quot;                =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 2,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#076687&amp;quot;),
+  &amp;quot;cleanup&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 3,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#98971a&amp;quot;),
+  &amp;quot;counters-0&amp;quot;          =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 4,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#076678&amp;quot;),
+  &amp;quot;default&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 5,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#3c3836&amp;quot;),
+  &amp;quot;digests.delivery&amp;quot;    =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 6,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#427b58&amp;quot;),
+  &amp;quot;digests.scheduling&amp;quot;  =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 7,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#859900&amp;quot;),
+  &amp;quot;email&amp;quot;               =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 8,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#83a598&amp;quot;),
+  &amp;quot;events&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 9,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#282828&amp;quot;),
+  &amp;quot;merge&amp;quot;               =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 10, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#b16286&amp;quot;),
+  &amp;quot;options&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 11, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#af3a03&amp;quot;),
+  &amp;quot;search&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 12, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#fe8019&amp;quot;),
+  &amp;quot;triggers-0&amp;quot;          =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 13, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#8ec07c&amp;quot;),
+  &amp;quot;update&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 14, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#b57614&amp;quot;),
+);
+
+$opt[1] = &amp;quot;--vertical-label Items --font DEFAULT:8:monospace --title &#39;Sentry queues &#39;&amp;quot;;
+
+$def[1]  = rrd::comment(&amp;quot;                               max       avg        min      last&amp;quot;);
+$def[1] .= rrd::comment(&amp;quot;\\n&amp;quot;);
+
+foreach ($fields as $name =&amp;gt; $data) {
+  $def[1] .= rrd::def($name, $RRDFILE[$data[&amp;quot;index&amp;quot;]], $DS[1], &amp;quot;AVERAGE&amp;quot;);
+  $def[1] .= rrd::line1($name, $data[&amp;quot;color&amp;quot;], str_pad($name, 22));
+
+  $def[1] .= rrd::gprint($name, &amp;quot;MAX&amp;quot;,     &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;AVERAGE&amp;quot;, &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;MIN&amp;quot;,     &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;LAST&amp;quot;,    &amp;quot;%8.1lf&amp;quot;);
+
+  $def[1] .= rrd::comment(&amp;quot;\\n&amp;quot;);
+}
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>about/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>about/</guid>
+      <description>&lt;p&gt;I am a Linux sysadmin, located in Gdańsk, Poland. I currently work for &lt;a href=&#34;http://www.trojmiasto.pl&#34;&gt;Trojmiasto.pl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/hugo-portrait.png&#34; class=&#34;profile&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;colophon/&#34;&gt;About this site&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>colophon</title>
+      <link>colophon/</link>
+      <pubDate>Sat, 22 Aug 2015 06:28:26 -0700</pubDate>
+      
+      <guid>colophon/</guid>
+      <description>&lt;p&gt;At the moment it is just a testing example for Github Pages and static website generators. Not that much to see here (yet).&lt;/p&gt;
+
+&lt;p&gt;It uses &lt;a target=&#34;_blank&#34; href=&#34;//gohugo.io&#34;&gt;Hugo&lt;/a&gt; with the &lt;a target=&#34;_blank&#34; href=&#34;//github.com/nishanths/cocoa-hugo-theme&#34;&gt;cocoa&lt;/a&gt; theme.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Code</title>
+      <link>code/</link>
+      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
+      
+      <guid>code/</guid>
+      <description>&lt;p&gt;My &lt;a href=&#34;https://github.com/moon-musick/.dotfiles&#34;&gt;dotfiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;https://github.com/moon-musick/.vim&#34;&gt;&lt;code&gt;vim&lt;/code&gt; configuration&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/about-this-site/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about-this-site/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&#34;canonical&#34; href=&#34;/colophon&#34;/&gt;
+    &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=utf-8&#34;/&gt;
+    &lt;meta http-equiv=&#34;refresh&#34; content=&#34;0;url=/colophon&#34;/&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&#34;canonical&#34; href=&#34;/blog&#34;/&gt;
+    &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=utf-8&#34;/&gt;
+    &lt;meta http-equiv=&#34;refresh&#34; content=&#34;0;url=/blog&#34;/&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/writing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writing/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&#34;canonical&#34; href=&#34;/posts&#34;/&gt;
+    &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=utf-8&#34;/&gt;
+    &lt;meta http-equiv=&#34;refresh&#34; content=&#34;0;url=/posts&#34;/&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

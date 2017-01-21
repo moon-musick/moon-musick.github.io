@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Testing">
+
+<base href="">
+<title>
+
+
+     Tabular legend in a PNP4Nagios template 
+
+</title>
+<link rel="canonical" href="blog/tabular-legend-in-pnp4nagios/">
+
+
+<script type="text/javascript">
+    var baseURL = '';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="/css/reset.css?t=1485019350">
+    <link rel="stylesheet" href="/css/pygments.css?t=1485019350">
+    <link rel="stylesheet" href="/css/main.css?t=1485019350">
+    
+        <link rel="stylesheet" href="/css/override.css?t=1485019350">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/leaf.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+              <a href="/"><img class="avatar" src="https://gravatar.com/avatar/bfb297df08beac6c3eb203c9e8e84ed4?s=50" /></a>
+            
+            <a href="/"><div class="name">Łukasz Górski</div></a>
+            
+            <nav>
+                <ul>
+                    <a href="/blog/"><li>Blog</li></a>
+                    <a href="/about/"><li>About</li></a>
+                    <a href="/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/moon-musick" target="_blank"><img class="icon" src="/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/moon_musick" target="_blank"><img class="icon" src="/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:moon.musick@gmail.com"><img class="icon" src="/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="/index.xml"><img class="icon" src="/img/rss.svg" alt="rss" /></a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Tabular legend in a PNP4Nagios template
+
+</div>
+
+                    <div class="initials"><a href=""></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sat Jan 21 2017 11:44:00 -0100">Jan 21, 2017</div>
+                    <div class="reading-time"><div class="middot"></div>1 minute read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>The example below is a template for a check gathering data from the <a href="https://docs.sentry.io/server/monitoring/"><code>sentry_queues</code></a> command.</p>
+
+<pre><code class="language-php">&lt;?php
+$fields = array(
+  &quot;alerts&quot;              =&gt; array(&quot;index&quot; =&gt; 1,  &quot;color&quot; =&gt; &quot;#9d0006&quot;),
+  &quot;auth&quot;                =&gt; array(&quot;index&quot; =&gt; 2,  &quot;color&quot; =&gt; &quot;#076687&quot;),
+  &quot;cleanup&quot;             =&gt; array(&quot;index&quot; =&gt; 3,  &quot;color&quot; =&gt; &quot;#98971a&quot;),
+  &quot;counters-0&quot;          =&gt; array(&quot;index&quot; =&gt; 4,  &quot;color&quot; =&gt; &quot;#076678&quot;),
+  &quot;default&quot;             =&gt; array(&quot;index&quot; =&gt; 5,  &quot;color&quot; =&gt; &quot;#3c3836&quot;),
+  &quot;digests.delivery&quot;    =&gt; array(&quot;index&quot; =&gt; 6,  &quot;color&quot; =&gt; &quot;#427b58&quot;),
+  &quot;digests.scheduling&quot;  =&gt; array(&quot;index&quot; =&gt; 7,  &quot;color&quot; =&gt; &quot;#859900&quot;),
+  &quot;email&quot;               =&gt; array(&quot;index&quot; =&gt; 8,  &quot;color&quot; =&gt; &quot;#83a598&quot;),
+  &quot;events&quot;              =&gt; array(&quot;index&quot; =&gt; 9,  &quot;color&quot; =&gt; &quot;#282828&quot;),
+  &quot;merge&quot;               =&gt; array(&quot;index&quot; =&gt; 10, &quot;color&quot; =&gt; &quot;#b16286&quot;),
+  &quot;options&quot;             =&gt; array(&quot;index&quot; =&gt; 11, &quot;color&quot; =&gt; &quot;#af3a03&quot;),
+  &quot;search&quot;              =&gt; array(&quot;index&quot; =&gt; 12, &quot;color&quot; =&gt; &quot;#fe8019&quot;),
+  &quot;triggers-0&quot;          =&gt; array(&quot;index&quot; =&gt; 13, &quot;color&quot; =&gt; &quot;#8ec07c&quot;),
+  &quot;update&quot;              =&gt; array(&quot;index&quot; =&gt; 14, &quot;color&quot; =&gt; &quot;#b57614&quot;),
+);
+
+$opt[1] = &quot;--vertical-label Items --font DEFAULT:8:monospace --title 'Sentry queues '&quot;;
+
+$def[1]  = rrd::comment(&quot;                               max       avg        min      last&quot;);
+$def[1] .= rrd::comment(&quot;\\n&quot;);
+
+foreach ($fields as $name =&gt; $data) {
+  $def[1] .= rrd::def($name, $RRDFILE[$data[&quot;index&quot;]], $DS[1], &quot;AVERAGE&quot;);
+  $def[1] .= rrd::line1($name, $data[&quot;color&quot;], str_pad($name, 22));
+
+  $def[1] .= rrd::gprint($name, &quot;MAX&quot;,     &quot;%8.1lf&quot;);
+  $def[1] .= rrd::gprint($name, &quot;AVERAGE&quot;, &quot;%8.1lf&quot;);
+  $def[1] .= rrd::gprint($name, &quot;MIN&quot;,     &quot;%8.1lf&quot;);
+  $def[1] .= rrd::gprint($name, &quot;LAST&quot;,    &quot;%8.1lf&quot;);
+
+  $def[1] .= rrd::comment(&quot;\\n&quot;);
+}
+?&gt;
+</code></pre>
+
+                <br>
+                <p><a href="/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+</body>
+</html>
+

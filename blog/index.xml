@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Łukasz Górski</title>
+    <link>/blog/index.xml</link>
+    <description>Recent content in Blog on Łukasz Górski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 21 Jan 2017 11:44:00 -0100</lastBuildDate>
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tabular legend in a PNP4Nagios template</title>
+      <link>blog/tabular-legend-in-pnp4nagios/</link>
+      <pubDate>Sat, 21 Jan 2017 11:44:00 -0100</pubDate>
+      
+      <guid>blog/tabular-legend-in-pnp4nagios/</guid>
+      <description>&lt;p&gt;The example below is a template for a check gathering data from the &lt;a href=&#34;https://docs.sentry.io/server/monitoring/&#34;&gt;&lt;code&gt;sentry_queues&lt;/code&gt;&lt;/a&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+$fields = array(
+  &amp;quot;alerts&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 1,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#9d0006&amp;quot;),
+  &amp;quot;auth&amp;quot;                =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 2,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#076687&amp;quot;),
+  &amp;quot;cleanup&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 3,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#98971a&amp;quot;),
+  &amp;quot;counters-0&amp;quot;          =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 4,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#076678&amp;quot;),
+  &amp;quot;default&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 5,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#3c3836&amp;quot;),
+  &amp;quot;digests.delivery&amp;quot;    =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 6,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#427b58&amp;quot;),
+  &amp;quot;digests.scheduling&amp;quot;  =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 7,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#859900&amp;quot;),
+  &amp;quot;email&amp;quot;               =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 8,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#83a598&amp;quot;),
+  &amp;quot;events&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 9,  &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#282828&amp;quot;),
+  &amp;quot;merge&amp;quot;               =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 10, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#b16286&amp;quot;),
+  &amp;quot;options&amp;quot;             =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 11, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#af3a03&amp;quot;),
+  &amp;quot;search&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 12, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#fe8019&amp;quot;),
+  &amp;quot;triggers-0&amp;quot;          =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 13, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#8ec07c&amp;quot;),
+  &amp;quot;update&amp;quot;              =&amp;gt; array(&amp;quot;index&amp;quot; =&amp;gt; 14, &amp;quot;color&amp;quot; =&amp;gt; &amp;quot;#b57614&amp;quot;),
+);
+
+$opt[1] = &amp;quot;--vertical-label Items --font DEFAULT:8:monospace --title &#39;Sentry queues &#39;&amp;quot;;
+
+$def[1]  = rrd::comment(&amp;quot;                               max       avg        min      last&amp;quot;);
+$def[1] .= rrd::comment(&amp;quot;\\n&amp;quot;);
+
+foreach ($fields as $name =&amp;gt; $data) {
+  $def[1] .= rrd::def($name, $RRDFILE[$data[&amp;quot;index&amp;quot;]], $DS[1], &amp;quot;AVERAGE&amp;quot;);
+  $def[1] .= rrd::line1($name, $data[&amp;quot;color&amp;quot;], str_pad($name, 22));
+
+  $def[1] .= rrd::gprint($name, &amp;quot;MAX&amp;quot;,     &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;AVERAGE&amp;quot;, &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;MIN&amp;quot;,     &amp;quot;%8.1lf&amp;quot;);
+  $def[1] .= rrd::gprint($name, &amp;quot;LAST&amp;quot;,    &amp;quot;%8.1lf&amp;quot;);
+
+  $def[1] .= rrd::comment(&amp;quot;\\n&amp;quot;);
+}
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

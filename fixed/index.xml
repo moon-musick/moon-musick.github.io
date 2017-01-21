@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixed on Łukasz Górski</title>
+    <link>/fixed/index.xml</link>
+    <description>Recent content in Fixed on Łukasz Górski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
+    <atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>about/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>about/</guid>
+      <description>&lt;p&gt;I am a Linux sysadmin, located in Gdańsk, Poland. I currently work for &lt;a href=&#34;http://www.trojmiasto.pl&#34;&gt;Trojmiasto.pl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/hugo-portrait.png&#34; class=&#34;profile&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;colophon/&#34;&gt;About this site&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>colophon</title>
+      <link>colophon/</link>
+      <pubDate>Sat, 22 Aug 2015 06:28:26 -0700</pubDate>
+      
+      <guid>colophon/</guid>
+      <description>&lt;p&gt;At the moment it is just a testing example for Github Pages and static website generators. Not that much to see here (yet).&lt;/p&gt;
+
+&lt;p&gt;It uses &lt;a target=&#34;_blank&#34; href=&#34;//gohugo.io&#34;&gt;Hugo&lt;/a&gt; with the &lt;a target=&#34;_blank&#34; href=&#34;//github.com/nishanths/cocoa-hugo-theme&#34;&gt;cocoa&lt;/a&gt; theme.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Code</title>
+      <link>code/</link>
+      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
+      
+      <guid>code/</guid>
+      <description>&lt;p&gt;My &lt;a href=&#34;https://github.com/moon-musick/.dotfiles&#34;&gt;dotfiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;https://github.com/moon-musick/.vim&#34;&gt;&lt;code&gt;vim&lt;/code&gt; configuration&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
